@@ -1,0 +1,224 @@
+<html>
+<head>
+  
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  background: whitesmoke;
+}
+a{
+  margin: 10px;
+  padding: 5px;
+  width: 15px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 18px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.container{
+  margin: 6px;
+  padding: 20px;
+  background: blue;
+  height: 45px;
+  position: center;
+  font-size: 40px;
+  border-right: 1px solid white;
+  border-radius: 38px;
+}
+h1{
+  text-align: center;
+}
+#timeS {
+  height: 45px;
+  width: 70px;
+  text-align-last: center;
+  padding: 2px 45px;
+  align-items: center;
+  margin: 30px;
+  border: 4px solid black;
+  color: black;
+  background-color: springgreen;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 19px;
+}
+#red{
+  text-align: ;
+  padding: 140px;
+  color:  #00FFFF;
+  border: none;
+  
+}
+#message{
+  height: 48px;
+  width: 280px;
+  display: flex;
+  text-align-last: center;
+  padding: 2px 45px;
+  align-items: center;
+  margin: 40px;
+  border: 4px solid black;
+  color: black;
+  background-color: springgreen;
+  font-size: 25px;
+  cursor: pointer;
+  border-radius: 19px;
+}
+button{
+  position: relative;
+  width: 200px;
+  padding: 10px 10px;
+  text-align: center;
+  font-size: 30px;
+  margin: 10px 8px;
+  font-weight: bold;
+  border: 3px solid black;
+  color:  white;
+  background-color: seagreen;
+   cursor: pointer;
+  border-radius: 19px;
+  overflow: hidden;
+  font-size: 29px;
+}
+.box1{
+       padding: 0px;
+        display: flex;
+        box-shadow: 2px 1px 4px 2px;
+        font-size: 2.5rem;
+        color: ;
+        border: 2px solid #2980b9;
+        height: 1600px;
+        width: 100%;
+        border-radius: 29px;
+        flex-direction: row;
+        position: center;
+      }
+.box2{
+  position: relative;
+  padding: 5px;
+  margin: 30px;
+  display: flex;
+  box-shadow: 2px 1px 4px 2px;
+  font-size: 1.9rem;
+  color:;
+  border: 2px solid #2980b9;
+  height: 1000px;
+  width: 46%;
+  border-radius: 29px;
+  overflow: auto;
+}
+textarea{
+  position: relative;
+  padding: 0;
+  margin: 30px;
+  display: flex;
+  border: none;
+  box-shadow: 2px 1px 4px 2px;
+  font-size: 1.9rem;
+  border: 2px solid #2980b9;
+  height: 1000px;
+  width: 89%;
+  border-radius: 29px;
+  overflow: auto;
+}
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>S-Typing</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	  
+	<div class="container">
+	  <a href="#">User</a>
+	  <a href="/index.html">Home</a>
+	  <a href="#">Game</a>
+ <a id="red">S-Typing</a>
+	  <h1>Test Your Typing Speed</h1>
+	  	 <a href="index.html"><button class="mainbtn">Done</button></a>
+  	    	<div id="timeS" style="display: inline-flex;">
+        <h2 id="time">1</h2>
+        <h2>:</h2>
+        <h2 id="timeSec">00</h2>
+
+    </div>
+	  <div class="box1">
+
+		<div class="box2">
+		 	    <p>
+	        A teacher is called builder of the nation. The profession of teaching needs men and women with qualities of head and heart. There are many teachers in our school and a large number of teachers among them are highly qualified. I have great respect for all of them. Yet I have a special liking for Miss Y. Miss Y is a woman of great principles. She is jewel among all the teachers. Almost all the students respect her. She teaches us English. She is quite at home in this subject. She takes keen interest in teaching students. Simple living and high thinking is her motto. She is a woman of sweet temper and is always ready to help in difficulties. She treats us like her own brothers and sisters. She is an ideal teacher. It is these qualities of head and heart that have endeared Miss Y to the students and teachers alike. She is an ideal teacher in real sense of the word. She is the real model to emulate. May she live as long as there is sweet fragrance in the flowers?
+	    </p>
+	</div>
+	
+     	<div class="box3">
+	  <textarea id="typingInput"></textarea>
+	   <center><div id="message"></div></center>
+		  </div>
+		  </div>
+		  </div>
+		   <script>
+	
+
+    // time in minute
+    let setTimer = 08;
+    // time up message
+    let message = "Your time is finished"
+
+let tinput = document.getElementById("typingInput");
+
+
+    // Set the date we're counting down to
+    let timer = document.getElementById("time");
+    let timerSec = document.getElementById("timeSec");
+    let messegeDiv = document.getElementById("message");
+    if (typeof (setTimer) == "number" && setTimer.toString().length == 1) {
+        timer.innerText = '0' + setTimer;
+        console.log(timer);
+        // decreasing time
+        min = false;
+        sec = false;
+        let secCount = 60;
+
+        setInterval(() => {
+            if (setTimer == 0) {
+                messegeDiv.innerText = message;
+                tinput.disabled = true;
+            } else {
+                if (timeSec.innerText == "00" && sec == false) {
+                    setTimer = setTimer - 1
+                    timer.innerText = setTimer;
+                    secCount = secCount - 1;
+                    timerSec.innerText = secCount;
+                    sec = true;
+                    console.log("a")
+                } else if (sec == true) {
+                    timerSec.innerText = secCount;
+                    if (secCount == 60) {
+                        secCount = secCount - 1;
+                        timerSec.innerText = secCount;
+                        console.log("b")
+                    } else {
+                        secCount = secCount - 1;
+                        timerSec.innerText = secCount;
+                        console.log("c")
+                        if (secCount == 0) {
+                            setTimer = setTimer - 1
+                            timer.innerText = setTimer;
+                            timerSec.innerText = 00;
+                            secCount = 60
+                        }
+                    }
+                }
+            }
+
+        }, 1000);
+
+    }
+
+</script>
+</body>
+
+</html>
